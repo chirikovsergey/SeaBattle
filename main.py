@@ -1,1 +1,1 @@
-print("Привет мир! second")
+print("Привет мир! third")
