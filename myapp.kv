@@ -1,0 +1,134 @@
+<GridLayout>:
+	rows: 6
+	cols: 4
+	spacing: 10  # Отступ между виджетами
+	padding: 20  # Отступ от краёв
+
+	# Размер поля по горизонтали
+	Label:
+		id: l_hor_size
+		text: 'Размер поля по горизонтали: ( 10 )'
+		size_hint_x: 0.5
+	Label:
+		id: l_hor_size_min
+		text: '10'
+		size_hint_x: 0.01
+	Slider:
+		id: sb_hor_size
+		min: 10
+		max: 100
+		value: 10
+		size_hint_x: 0.48
+		on_value: l_hor_size.text = f"'Размер поля по горизонтали: ( {int(self.value)} )"; sb_vert_size.value = int(self.value)
+	Label:
+		id: l_hor_size_max	
+		text: '100'
+		size_hint_x: 0.01
+
+	# Размер поля по вертикали
+	Label:
+		id: l_vert_size
+		text: 'Размер поля по вертикали: ( 10 )'
+		size_hint_x: 0.5
+	Label:
+		id: l_vert_size_min
+		text: '10'
+		size_hint_x: 0.01
+	Slider:
+		id: sb_vert_size
+		min: 10
+		max: 100
+		value: 10
+		size_hint_x: 0.48
+		on_value: l_vert_size.text = f"'Размер поля по вертикали: ( {int(self.value)} )"
+	Label:
+		id: l_vert_size_max	
+		text: '100'
+		size_hint_x: 0.01
+
+	# Количество четырёхпалубников
+	Label:
+		id: l_4p_count
+		text: 'Количество четырёхпалубников: ( 1 )'
+		size_hint_x: 0.5
+	Label:
+		id: l_4p_count_min
+		text: '0'
+		size_hint_x: 0.01
+	Slider:
+		id: sb_4p_count
+		min: 0
+		max: 20
+		value: 1
+		size_hint_x: 0.48
+		on_value: l_4p_count.text = f"'Количество четырёхпалубников: ( {int(self.value)} )"
+	Label:
+		id: l_4p_count_max	
+		text: '20'
+		size_hint_x: 0.01
+
+
+	# Количество трёхпалубников
+	Label:
+		id: l_3p_count
+		text: 'Количество трёхпалубников: ( 2 )'
+		size_hint_x: 0.5
+	Label:
+		id: l_3p_count_min
+		text: '0'
+		size_hint_x: 0.01
+	Slider:
+		id: sb_3p_count
+		min: 0
+		max: 30
+		value: 2
+		size_hint_x: 0.48
+		on_value: l_3p_count.text = f"'Количество трёхпалубников: ( {int(self.value)} )"
+	Label:
+		id: l_3p_count_max	
+		text: '30'
+		size_hint_x: 0.01
+
+
+	# Количество двухпалубников
+	Label:
+		id: l_2p_count
+		text: 'Количество двухпалубников: ( 3 )'
+		size_hint_x: 0.5
+	Label:
+		id: l_2p_count_min
+		text: '0'
+		size_hint_x: 0.01
+	Slider:
+		id: sb_2p_count
+		min: 0
+		max: 40
+		value: 3
+		size_hint_x: 0.48
+		on_value: l_2p_count.text = f"'Количество двухпалубников: ( {int(self.value)} )"
+	Label:
+		id: l_2p_count_max	
+		text: '40'
+		size_hint_x: 0.01
+
+
+	# Количество однопалубников
+	Label:
+		id: l_1p_count
+		text: 'Количество однопалубников: ( 4 )'
+		size_hint_x: 0.5
+	Label:
+		id: l_1p_count_min
+		text: '0'
+		size_hint_x: 0.01
+	Slider:
+		id: sb_1p_count
+		min: 0
+		max: 50
+		value: 4
+		size_hint_x: 0.48
+		on_value: l_1p_count.text = f"'Количество однопалубников: ( {int(self.value)} )"
+	Label:
+		id: l_1p_count_max	
+		text: '50'
+		size_hint_x: 0.01
