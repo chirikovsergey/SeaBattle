@@ -9,5 +9,6 @@ class MainLayout(GridLayout):
     def on_button_click(self):
         self.ids.label.text = "Кнопка нажата!"
 
+
 if __name__ == "__main__":
     MyApp().run()
