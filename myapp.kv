@@ -1,5 +1,5 @@
 <GridLayout>:
-	rows: 6
+	rows: 9
 	cols: 4
 	spacing: 10  # Отступ между виджетами
 	padding: 20  # Отступ от краёв
@@ -132,3 +132,42 @@
 		id: l_1p_count_max	
 		text: '50'
 		size_hint_x: 0.01
+
+	
+	Label:
+		text: 'Разрешить короблям сопрекасаться'
+		halign: 'left'
+		valign: 'middle'
+		size_hint_x: 1
+	
+	Label:
+	
+	CheckBox:
+		id: cb_allow_ship_contact
+		size_hint_x: None
+		width: '48dp'
+	Label:
+
+	Label:
+		text: 'Разрешить скривлённые корабли'
+		halign: 'left'
+		valign: 'middle'
+		size_hint_x: 1
+	
+	Label:
+	
+	CheckBox:
+		id: cb_allow_crooked_ship
+		size_hint_x: None
+		width: '48dp'
+	Label:
+
+
+	Label:
+	Label:
+
+	Button:
+		id: b_start_game
+    	text: 'Начать игру'
+    	size: (200, 50)
+    	size: ('200dp', '50dp')
