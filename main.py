@@ -1,5 +1,6 @@
 from kivy.app import App
 from kivy.uix.gridlayout import GridLayout
+from kivy.uix.boxlayout import BoxLayout
 
 from libs.ship import ship #временно
 
@@ -12,11 +13,21 @@ class MyApp(App):
         ship1.damage = 50
         print(f"Первый корабль - {ship1.damage}")
         # ----------------------------
-        return MainLayout()  # Главный виджет (описан в KV)
+        self.layout = MainLayout()  # Главный виджет (описан в KV)
+        return self.layout
+    
+    # Очистить слой body
+    def clear_main_content(self):
+        self.root.ids.bl_main_content.clear_widgets()  
 
-class MainLayout(GridLayout):
-    def on_button_click(self):
-        self.ids.label.text = "Кнопка нажата!"
+    # Задать текст статус-бара
+    # Входные параметры:
+    #  text - новый текст
+    def set_app_status(self, text):
+        self.root.ids.bl_statusbar.ids.l_app_status_bar.text = f"{text}"         
+
+class MainLayout(BoxLayout):
+    pass
 
 
 if __name__ == "__main__":

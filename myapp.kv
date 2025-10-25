@@ -1,4 +1,105 @@
-<GridLayout>:
+<MainLayout>:
+    orientation: 'vertical'
+    
+    # Верхний меню бар (всегда наверху)
+    MenuBar:
+		id: bl_menubar
+        size_hint_y: None
+        height: '50dp'
+        
+    # Основной контент (занимает всё оставшееся пространство)
+    MainContent:
+        id: bl_main_content
+        
+    # Нижний статус бар (всегда внизу)
+    StatusBar:
+		id: bl_statusbar
+        size_hint_y: None
+        height: '30dp'
+
+<MenuBar@BoxLayout>:
+    orientation: 'horizontal'
+    padding: '5dp'
+    spacing: '5dp'
+    canvas.before:
+        Color:
+            rgba: 0.2, 0.4, 0.8, 1  # Синий фон
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    
+    Button:
+        text: 'Файл'
+        size_hint_x: 0.1
+        on_press: app.show_file_menu()
+    
+    Button:
+        text: 'Правка'
+        size_hint_x: 0.1
+        on_press: app.show_edit_menu()
+    
+    Button:
+        text: 'Вид'
+        size_hint_x: 0.1
+        on_press: app.show_view_menu()
+    
+    Label:
+        text: 'Мое приложение'
+        font_size: '20sp'
+        bold: True
+        color: 1, 1, 1, 1
+        size_hint_x: 0.5
+    
+    Button:
+        text: 'Настройки'
+        size_hint_x: 0.1
+        on_press: app.show_settings()
+    
+    Button:
+        text: 'Справка'
+        size_hint_x: 0.1
+        on_press: app.show_help()
+
+<MainContent@BoxLayout>:
+	id: bl_main_content
+    orientation: 'vertical'
+    padding: '10dp'
+    
+    # на старте показываем настройки
+    Settings:
+
+<StatusBar@BoxLayout>:
+    orientation: 'horizontal'
+    padding: '5dp'
+    canvas.before:
+        Color:
+            rgba: 0.3, 0.3, 0.3, 1  # Темно-серый фон
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    
+    Label:
+        id: l_app_status_bar
+        text: 'Готов'
+        color: 1, 1, 1, 1
+        size_hint_x: 0.7
+    
+    Label:
+        id: time_label
+        text: 'Время: 00:00:00'
+        color: 1, 1, 1, 1
+        size_hint_x: 0.3
+
+
+
+
+
+
+
+<Settings@GridLayout>:
+	# Настройки игры
+	id: gl_settings
+	orientation: 'vertical'
 	rows: 9
 	cols: 4
 	spacing: 10  # Отступ между виджетами
@@ -133,41 +234,41 @@
 		text: '50'
 		size_hint_x: 0.01
 
-	
+	# Разрешение касаний кораблей
 	Label:
 		text: 'Разрешить короблям сопрекасаться'
 		halign: 'left'
 		valign: 'middle'
 		size_hint_x: 1
-	
 	Label:
-	
 	CheckBox:
 		id: cb_allow_ship_contact
 		size_hint_x: None
 		width: '48dp'
 	Label:
 
+	# Разрешение кривых кораблей
 	Label:
 		text: 'Разрешить скривлённые корабли'
 		halign: 'left'
 		valign: 'middle'
 		size_hint_x: 1
-	
 	Label:
-	
 	CheckBox:
 		id: cb_allow_crooked_ship
 		size_hint_x: None
 		width: '48dp'
 	Label:
 
-
+	#Кнопка
 	Label:
 	Label:
-
 	Button:
 		id: b_start_game
-    	text: 'Начать игру'
-    	size: (200, 50)
-    	size: ('200dp', '50dp')
+		text: 'Начать игру'
+		size: (200, 50)
+		size: ('200dp', '50dp')
+		on_release:
+			app.set_app_status("Построение поля")
+			# app.clear_main_content()
+	Label:
